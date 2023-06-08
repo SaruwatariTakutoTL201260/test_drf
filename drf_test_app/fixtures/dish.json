@@ -1,0 +1,32 @@
+[
+    {
+        "model": "drf_test_app.dish",
+        "pk": 1,
+        "fields": {
+            "name": "testName1",
+            "table_id": 1,
+            "modified": "2021-10-21T11:30:45Z",
+            "is_deleted": true
+        }
+    },
+    {
+        "model": "drf_test_app.dish",
+        "pk": 2,
+        "fields": {
+            "name": "testName2",
+            "table_id": 1,
+            "modified": "2021-10-21T11:30:45Z",
+            "is_deleted": false
+        }
+    },
+    {
+        "model": "drf_test_app.dish",
+        "pk": 3,
+        "fields": {
+            "name": "testName3",
+            "table_id": 2,
+            "modified": "2021-10-21T11:30:45Z",
+            "is_deleted": false
+        }
+    }
+]

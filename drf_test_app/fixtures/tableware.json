@@ -1,0 +1,16 @@
+[
+    {
+        "model": "drf_test_app.tableware",
+        "pk": 1,
+        "fields": {
+            "contents": "testContents"
+        }
+    },
+    {
+        "model": "drf_test_app.tableware",
+        "pk": 2,
+        "fields": {
+            "contents": "testContents"
+        }
+    }
+]

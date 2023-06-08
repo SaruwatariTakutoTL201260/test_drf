@@ -1,0 +1,77 @@
+INFO:root:uuu
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:Dish object (1)
+WARNING:django.request:Not Found: /api/dish/5/
+INFO:root:uuu
+INFO:root:uuu
+WARNING:django.request:Not Found: /api/dish/9/
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:Dish object (1)
+INFO:root:Dish object (3)
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/dish/3/
+Traceback (most recent call last):
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py", line 17, in retrieve
+    logging.info(object[1])
+TypeError: 'Dish' object is not subscriptable
+ERROR:django.request:Internal Server Error: /api/dish/1/
+Traceback (most recent call last):
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py", line 17, in retrieve
+    logging.info(object[1])
+TypeError: 'Dish' object is not subscriptable
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:<class 'drf_test_app.models.Dish'>
+INFO:root:<class 'drf_test_app.models.Dish'>
+WARNING:django.request:Not Found: /api/dish/4/
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:Dish object (3)
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:{'_state': <django.db.models.base.ModelState object at 0x000001F3BE3ADEE0>, 'id': 3, 'table_id_id': 2, 'name': 'testName3', 'modified': datetime.datetime(2021, 10, 21, 11, 30, 45, tzinfo=datetime.timezone.utc), 'is_deleted': False}
+WARNING:django.request:Not Found: /api/dish/‚T/
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:DishSerializer(<Dish: Dish object (1)>):
+    id = IntegerField(label='ID', read_only=True)
+    table_id = PrimaryKeyRelatedField(queryset=TableWare.objects.all())
+    modified = DateTimeField(required=False)
+    name = CharField(max_length=64)
+    is_deleted = BooleanField(required=False)
+WARNING:django.request:Not Found: /api/dish/10/
+INFO:root:DishSerializer(<Dish: Dish object (2)>):
+    id = IntegerField(label='ID', read_only=True)
+    table_id = PrimaryKeyRelatedField(queryset=TableWare.objects.all())
+    modified = DateTimeField(required=False)
+    name = CharField(max_length=64)
+    is_deleted = BooleanField(required=False)
+WARNING:django.request:Not Found: /api/dish/6/

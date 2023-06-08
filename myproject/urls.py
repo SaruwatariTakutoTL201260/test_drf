@@ -19,13 +19,13 @@ from django.urls import path,include
 from rest_framework import routers
 from drf_test_app.views import DishView, TableWareView
 
-dishRouter = routers.DefaultRouter()
-
-dishRouter.register('dish',DishView)
+router = routers.DefaultRouter()
+router.register(r'dish',DishView, basename='dish')
+router.register(r'tableware', TableWareView, basename='tableware')
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(dishRouter.urls)),
+    path('api/', include(router.urls)),
 ]
