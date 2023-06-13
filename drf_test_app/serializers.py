@@ -10,3 +10,7 @@ class TableWareSerializer(serializers.ModelSerializer):
     class Meta:
         model = TableWare
         fields = ('id','contents')
+
+class ErrorSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('code','message')
