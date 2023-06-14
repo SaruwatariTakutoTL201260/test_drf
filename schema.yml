@@ -3,7 +3,7 @@ info:
   title: ''
   version: ''
 paths:
-  /api/dish/:
+  /dish/:
     get:
       operationId: listDishs
       description: ''
@@ -18,7 +18,7 @@ paths:
                   $ref: '#/components/schemas/Dish'
           description: ''
       tags:
-      - api
+      - dish
     post:
       operationId: createDish
       description: ''
@@ -42,8 +42,8 @@ paths:
                 $ref: '#/components/schemas/Dish'
           description: ''
       tags:
-      - api
-  /api/dish/{id}/:
+      - dish
+  /dish/{id}/:
     get:
       operationId: retrieveDish
       description: ''
@@ -62,7 +62,7 @@ paths:
                 $ref: '#/components/schemas/Dish'
           description: ''
       tags:
-      - api
+      - dish
     put:
       operationId: updateDish
       description: ''
@@ -92,7 +92,7 @@ paths:
                 $ref: '#/components/schemas/Dish'
           description: ''
       tags:
-      - api
+      - dish
     patch:
       operationId: partialUpdateDish
       description: ''
@@ -122,7 +122,7 @@ paths:
                 $ref: '#/components/schemas/Dish'
           description: ''
       tags:
-      - api
+      - dish
     delete:
       operationId: destroyDish
       description: ''
@@ -137,8 +137,8 @@ paths:
         '204':
           description: ''
       tags:
-      - api
-  /api/tableware/:
+      - dish
+  /tableware/:
     get:
       operationId: listTableWares
       description: ''
@@ -153,7 +153,7 @@ paths:
                   $ref: '#/components/schemas/TableWare'
           description: ''
       tags:
-      - api
+      - tableware
     post:
       operationId: createTableWare
       description: ''
@@ -177,8 +177,8 @@ paths:
                 $ref: '#/components/schemas/TableWare'
           description: ''
       tags:
-      - api
-  /api/tableware/{id}/:
+      - tableware
+  /tableware/{id}/:
     get:
       operationId: retrieveTableWare
       description: ''
@@ -197,7 +197,7 @@ paths:
                 $ref: '#/components/schemas/TableWare'
           description: ''
       tags:
-      - api
+      - tableware
     put:
       operationId: updateTableWare
       description: ''
@@ -227,7 +227,7 @@ paths:
                 $ref: '#/components/schemas/TableWare'
           description: ''
       tags:
-      - api
+      - tableware
     patch:
       operationId: partialUpdateTableWare
       description: ''
@@ -257,7 +257,7 @@ paths:
                 $ref: '#/components/schemas/TableWare'
           description: ''
       tags:
-      - api
+      - tableware
     delete:
       operationId: destroyTableWare
       description: ''
@@ -272,7 +272,7 @@ paths:
         '204':
           description: ''
       tags:
-      - api
+      - tableware
 components:
   schemas:
     Dish:
@@ -302,5 +302,7 @@ components:
           readOnly: true
         contents:
           type: string
+        is_deleted:
+          type: boolean
       required:
       - contents

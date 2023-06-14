@@ -27,5 +27,5 @@ router.register(r'tableware', TableWareView, basename='tableware')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
