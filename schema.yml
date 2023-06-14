@@ -1,0 +1,306 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/dish/:
+    get:
+      operationId: listDishs
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dish'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createDish
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dish'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dish'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dish'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dish'
+          description: ''
+      tags:
+      - api
+  /api/dish/{id}/:
+    get:
+      operationId: retrieveDish
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dish.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dish'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateDish
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dish.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dish'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dish'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dish'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dish'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateDish
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dish.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dish'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Dish'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Dish'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dish'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyDish
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this dish.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/tableware/:
+    get:
+      operationId: listTableWares
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TableWare'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createTableWare
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableWare'
+          description: ''
+      tags:
+      - api
+  /api/tableware/{id}/:
+    get:
+      operationId: retrieveTableWare
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this table ware.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableWare'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateTableWare
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this table ware.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableWare'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateTableWare
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this table ware.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TableWare'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableWare'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyTableWare
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this table ware.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Dish:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        table_id:
+          type: integer
+        modified:
+          type: string
+          format: date-time
+        name:
+          type: string
+          maxLength: 64
+        is_deleted:
+          type: boolean
+      required:
+      - table_id
+      - name
+    TableWare:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        contents:
+          type: string
+      required:
+      - contents

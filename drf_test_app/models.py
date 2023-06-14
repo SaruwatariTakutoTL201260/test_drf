@@ -3,6 +3,7 @@ from django.utils import timezone
 
 class TableWare(models.Model):
     contents = models.TextField()
+    is_deleted = models.BooleanField(default=False);
 
 class Dish(models.Model):
     table_id = models.ForeignKey(TableWare,  related_name='dishes', on_delete=models.CASCADE)

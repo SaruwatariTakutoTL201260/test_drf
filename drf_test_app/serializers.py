@@ -9,7 +9,7 @@ class DishSerializer(serializers.ModelSerializer):
 class TableWareSerializer(serializers.ModelSerializer):
     class Meta:
         model = TableWare
-        fields = ('id','contents')
+        fields = ('id','contents','is_deleted')
 
 class ErrorSerializer(serializers.ModelSerializer):
     class Meta:

@@ -79,6 +79,30 @@ class ModelRetrieveView(viewsets.ModelViewSet):
         
         return Response(response_data, status=response_data["code"])
 
+    def destroy(self, request, pk=None):
+        if not pk.isnumeric():
+            response_data = {
+                "code": status.HTTP_400_BAD_REQUEST,
+                "message": "bad request"
+            }
+            return Response(response_data, status=response_data['code'])
+        try:
+            object = self.model_class.objects.get(pk=pk,is_deleted=False)
+        except self.model_class.DoesNotExist:
+            response_data = {
+                "code": status.HTTP_404_NOT_FOUND,
+                "message": "not found"
+            }
+            return Response(response_data, status=response_data["code"])
+        object.is_deleted = True
+        object.save()
+        response_data = {
+            "code": status.HTTP_200_OK,
+            "message": "deleted success"
+        }
+
+        return Response(response_data,status=response_data['code'])
+
 class DishView(ModelRetrieveView):
     model_class = Dish
     serializer_class = DishSerializer
