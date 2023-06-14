@@ -11,6 +11,7 @@ class ModelRetrieveView(viewsets.ModelViewSet):
     model_class = None
     authentication_classes = [TokenAuthentication,]
 
+    # 取得処理
     def retrieve(self,request,pk=None,format=None):
         if not pk.isnumeric():
             response_data = {
@@ -39,15 +40,55 @@ class ModelRetrieveView(viewsets.ModelViewSet):
         }
         return Response(response_data, status=response_data['code'])
 
+    # 登録処理
+    def create(self, request):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception = True)
+        serializer.save()
+        response_data = {
+            "code":status.HTTP_201_CREATED,
+            "message": "create success",
+            **{self.basename: serializer.data},
+        }
+        return Response(response_data,status=response_data['code'])
+
+    # 更新処理
+    def update(self, request, pk=None):
+        if not pk.isnumeric():
+            response_data = {
+                "code": status.HTTP_400_BAD_REQUEST,
+                "message": "bad request"
+            }
+            return Response(response_data, status=response_data["code"])
+        try:
+            object = self.model_class.objects.get(pk=pk)
+        except self.model_class.DoesNotExist:
+            response_data = {
+                "code": status.HTTP_404_NOT_FOUND,
+                "message": "not found"
+            }
+            return Response(response_data, status=response_data["code"])
+        serializer = self.serializer_class(object, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        response_data = {
+            "code": status.HTTP_200_OK,
+            "message": "update success",
+            **{self.basename: serializer.data},
+        }
+        
+        return Response(response_data, status=response_data["code"])
 
 class DishView(ModelRetrieveView):
     model_class = Dish
     serializer_class = DishSerializer
     basename = "dish"
+    queryset = Dish.objects.all()
 
 class TableWareView(ModelRetrieveView):
     model_class = TableWare
     serializer_class = TableWareSerializer
     basename = "tableware"
+    queryset = TableWare.objects.all()
 
 # Create your views here.
