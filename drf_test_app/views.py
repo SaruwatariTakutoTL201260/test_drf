@@ -5,11 +5,38 @@ from rest_framework.response import Response
 from .serializers import DishSerializer, TableWareSerializer
 from drf_test_app.models import TableWare, Dish
 from rest_framework.authentication import TokenAuthentication
+import logging
 
 class ModelRetrieveView(viewsets.ModelViewSet):
     serializer_class = None
     model_class = None
     authentication_classes = [TokenAuthentication,]
+
+    # 一覧取得処理
+    def list(self, request, *args, **kwargs):
+        # 条件に合うデータを一覧取得
+        queryset = self.model_class.objects.all()
+        if queryset is None:
+            # 対象のデータが存在しない場合404エラーを返す
+            response_data = {
+                "code": status.HTTP_404_NOT_FOUND,
+                "message": "not found"
+            }
+            return Response(response_data, status=response_data['code'])
+        
+        # 対象のmodelに合うようにデータをシリアライズ
+        serializer = self.serializer_class(queryset, many=True)
+        data = {
+            self.model_class.__name__.lower(): serializer.data
+        }
+       
+        # 正常に取得できた場合は200とデータを返す
+        response_data = {
+            "code": status.HTTP_200_OK,
+            "message": "success",
+            **data
+        }
+        return Response(response_data, status=response_data['code'])
 
     # 取得処理
     def retrieve(self,request,pk=None,format=None):

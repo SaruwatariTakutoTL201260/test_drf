@@ -1,49 +1,58 @@
-INFO:root:<module 'rest_framework.status' from 'C:\\Users\\saruwatari\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\rest_framework\\status.py'>
-INFO:root:yyy
-INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
-INFO:root:yyy
-INFO:root:yyy
-INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
-INFO:root:yyy
-ERROR:django.request:Internal Server Error: /api/dish/7/
+INFO:root:<QuerySet [<Dish: Dish object (1)>, <Dish: Dish object (2)>, <Dish: Dish object (3)>]>
+ERROR:django.request:Internal Server Error: /dish/
 Traceback (most recent call last):
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 85, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 637, in get
-    raise self.model.DoesNotExist(
-drf_test_app.models.Dish.DoesNotExist: Dish matching query does not exist.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py", line 15, in retrieve
-    object = generics.get_object_or_404(queryset, pk=pk)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
-    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 87, in get_object_or_404
-    raise Http404(
-django.http.response.Http404: No Dish matches the given query.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
     return view_func(*args, **kwargs)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\viewsets.py", line 125, in view
     return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
     response = self.handle_exception(exc)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
     self.raise_uncaught_exception(exc)
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
     raise exc
-  File "C:\Users\saruwatari\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
-  File "C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py", line 16, in retrieve
-    except status.HTTP_404_NOT_FOUND:
-TypeError: catching classes that do not inherit from BaseException is not allowed
+  File "C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py", line 21, in list
+    object = generics.get_object_or_404(queryset)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\db\models\query.py", line 640, in get
+    raise self.model.MultipleObjectsReturned(
+drf_test_app.models.Dish.MultipleObjectsReturned: get() returned more than one Dish -- it returned 3!
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:Dish object (2)
+ERROR:django.request:Internal Server Error: /dish/
+Traceback (most recent call last):
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py", line 21, in list
+    object = generics.get_object_or_404(queryset)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "C:\Users\saruwatari\test-django\myproject\env\lib\site-packages\django\db\models\query.py", line 640, in get
+    raise self.model.MultipleObjectsReturned(
+drf_test_app.models.Dish.MultipleObjectsReturned: get() returned more than one Dish -- it returned 3!
 INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
