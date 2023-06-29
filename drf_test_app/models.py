@@ -10,5 +10,8 @@ class Dish(models.Model):
     name = models.CharField(max_length=64)
     modified = models.DateTimeField(default=timezone.now)
     is_deleted = models.BooleanField(default=False);
+
+class User(models.Model):
+    name = models.CharField(max_length=64);
     
 # Create your models here.

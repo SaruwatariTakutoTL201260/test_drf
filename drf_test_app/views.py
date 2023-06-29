@@ -1,19 +1,25 @@
 from django.shortcuts import render
 from django.http import Http404
-from rest_framework import viewsets, generics, status
+from rest_framework import viewsets, generics, status, permissions
+from rest_framework.authentication import BaseAuthentication
 from rest_framework.response import Response
 from .serializers import DishSerializer, TableWareSerializer
 from drf_test_app.models import TableWare, Dish
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import TokenAuthentication, SessionAuthentication, BasicAuthentication
 import logging
 
 class ModelRetrieveView(viewsets.ModelViewSet):
     serializer_class = None
     model_class = None
-    authentication_classes = [TokenAuthentication,]
+    # authentication_classes = [TokenAuthentication,]
+    # authentication_classes = [BasicAuthentication,]
+    authentication_classes = (SessionAuthentication,TokenAuthentication,)
+    # permission_classes = (permissions.IsAuthenticated,)
 
     # 一覧取得処理
     def list(self, request, *args, **kwargs):
+        logging.basicConfig(filename='app.log', level=logging.INFO)
+        logging.info(request.user.is_authenticated)
         # 条件に合うデータを一覧取得
         queryset = self.model_class.objects.all()
         if queryset is None:
@@ -131,6 +137,8 @@ class ModelRetrieveView(viewsets.ModelViewSet):
         return Response(response_data,status=response_data['code'])
 
 class DishView(ModelRetrieveView):
+    authentication_classes = [BasicAuthentication,]
+    permission_classes = (permissions.IsAuthenticated,)
     model_class = Dish
     serializer_class = DishSerializer
     basename = "dish"

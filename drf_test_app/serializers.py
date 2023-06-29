@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from drf_test_app.models import TableWare, Dish
+from drf_test_app.models import TableWare, Dish, User
  
 class DishSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,3 +14,8 @@ class TableWareSerializer(serializers.ModelSerializer):
 class ErrorSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('code','message')
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','name')

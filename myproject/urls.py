@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path,include
 from rest_framework import routers
 from drf_test_app.views import DishView, TableWareView
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'dish',DishView, basename='dish')
@@ -28,4 +29,5 @@ router.register(r'tableware', TableWareView, basename='tableware')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('api-token-auth/', obtain_auth_token),
 ]
