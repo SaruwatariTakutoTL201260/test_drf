@@ -15,3 +15,53 @@ INFO:root:False
 INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\myproject\settings.py changed, reloading.
 INFO:root:False
 INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+WARNING:django.request:Unauthorized: /tableware/
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+WARNING:django.request:Unauthorized: /dish/
+INFO:root:True
+INFO:root:True
+WARNING:django.request:Unauthorized: /dish/
+WARNING:django.request:Unauthorized: /tableware/
+WARNING:django.request:Unauthorized: /dish/
+WARNING:django.request:Unauthorized: /dish/
+WARNING:django.request:Unauthorized: /dish/
+WARNING:django.request:Unauthorized: /dish/
+WARNING:django.request:Unauthorized: /dish/
+INFO:root:True
+INFO:root:True
+INFO:root:True
+WARNING:django.request:Unauthorized: /dish/
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+INFO:root:True
+WARNING:django.request:Not Found: /dish/6666/
+INFO:root:True
+WARNING:django.request:Unauthorized: /dish/
+WARNING:django.request:Unauthorized: /dish/
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:False
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:root:True
+INFO:django.utils.autoreload:C:\Users\saruwatari\test-django\myproject\drf_test_app\views.py changed, reloading.

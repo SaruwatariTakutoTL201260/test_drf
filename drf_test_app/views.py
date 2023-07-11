@@ -5,23 +5,25 @@ from rest_framework.authentication import BaseAuthentication
 from rest_framework.response import Response
 from .serializers import DishSerializer, TableWareSerializer
 from drf_test_app.models import TableWare, Dish
+from rest_framework.exceptions import ValidationError
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication, BasicAuthentication
 import logging
+from rest_framework.authtoken.models import Token
 
 class ModelRetrieveView(viewsets.ModelViewSet):
     serializer_class = None
     model_class = None
-    # authentication_classes = [TokenAuthentication,]
-    # authentication_classes = [BasicAuthentication,]
-    authentication_classes = (SessionAuthentication,TokenAuthentication,)
-    # permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = [BasicAuthentication,]
+    permission_classes = (permissions.IsAuthenticated,)
 
     # 一覧取得処理
     def list(self, request, *args, **kwargs):
-        logging.basicConfig(filename='app.log', level=logging.INFO)
-        logging.info(request.user.is_authenticated)
+        # クエリパラメータを取得
+        query = request.query_params.get('id')
         # 条件に合うデータを一覧取得
         queryset = self.model_class.objects.all()
+        if  query:
+            queryset = queryset.filter(some_field=query)
         if queryset is None:
             # 対象のデータが存在しない場合404エラーを返す
             response_data = {
@@ -40,7 +42,7 @@ class ModelRetrieveView(viewsets.ModelViewSet):
         response_data = {
             "code": status.HTTP_200_OK,
             "message": "success",
-            **data
+            "data" : data[self.model_class.__name__.lower()]
         }
         return Response(response_data, status=response_data['code'])
 
@@ -75,13 +77,21 @@ class ModelRetrieveView(viewsets.ModelViewSet):
 
     # 登録処理
     def create(self, request):
-        serializer = self.serializer_class(data=request.data)
-        serializer.is_valid(raise_exception = True)
+        try:
+            serializer = self.serializer_class(data=request.data)
+            serializer.is_valid(raise_exception = True)
+        except ValidationError as e:
+            response_data = {
+                "code": 400,
+                "message": e.detail
+            }
+            return Response(response_data, status=response_data['code'])
+
         serializer.save()
         response_data = {
             "code":status.HTTP_201_CREATED,
             "message": "create success",
-            **{self.basename: serializer.data},
+            "data": serializer.data
         }
         return Response(response_data,status=response_data['code'])
 
@@ -101,13 +111,20 @@ class ModelRetrieveView(viewsets.ModelViewSet):
                 "message": "not found"
             }
             return Response(response_data, status=response_data["code"])
-        serializer = self.serializer_class(object, data=request.data)
-        serializer.is_valid(raise_exception=True)
+        try:
+            serializer = self.serializer_class(object, data=request.data)
+            serializer.is_valid(raise_exception = True)
+        except ValidationError as e:
+            response_data = {
+                "code": 400,
+                "message": e.detail
+            }
+            return Response(response_data, status=response_data['code'])
         serializer.save()
         response_data = {
             "code": status.HTTP_200_OK,
             "message": "update success",
-            **{self.basename: serializer.data},
+            "data": serializer.data
         }
         
         return Response(response_data, status=response_data["code"])
@@ -131,14 +148,14 @@ class ModelRetrieveView(viewsets.ModelViewSet):
         object.save()
         response_data = {
             "code": status.HTTP_200_OK,
-            "message": "deleted success"
+            "message": "delete success"
         }
 
         return Response(response_data,status=response_data['code'])
 
 class DishView(ModelRetrieveView):
-    authentication_classes = [BasicAuthentication,]
-    permission_classes = (permissions.IsAuthenticated,)
+    # authentication_classes = [BasicAuthentication,]
+    # permission_classes = (permissions.IsAuthenticated,)
     model_class = Dish
     serializer_class = DishSerializer
     basename = "dish"
